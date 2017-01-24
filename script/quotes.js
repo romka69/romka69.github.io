@@ -82,7 +82,7 @@ var image_author = {
 $(function(){
     var quotes_rand = Math.floor(Math.random()*quotes.length);
     $('blockquote').append('<p>' + quotes[quotes_rand].phrase + '</p>');
-    $('center').append('<p>' + quotes[quotes_rand].signature + '</p>');
-    $('center').append('<img src="images/' + image_author[quotes[quotes_rand].signature] + '.gif">');
+    $('.quote-box').append('<p>' + quotes[quotes_rand].signature + '</p>');
+    $('.quote-box').append('<img src="images/' + image_author[quotes[quotes_rand].signature] + '.gif">');
 
 });
