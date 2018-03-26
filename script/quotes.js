@@ -1,88 +1,11 @@
-var quotes =
-    [
-      {
-        "phrase": "Опять работать?!",
-        "signature": "Работник"
-      },
-      {
-        "phrase": "Не оскверняй меня своим курсором!",
-        "signature": "Паладин"
-      },
-      {
-        "phrase": "Как говорит наш любимый шеф, за чужой счет пьют и язвенники, и трезвенники.",
-        "signature": "Горный король"
-      },
-      {
-        "phrase": "И солнце ярче блещет, И веселей пейзаж, Когда в желудке плещет C2H5OH!",
-        "signature": "Алхимик"
-      },
-      {
-        "phrase": "Сгинь, нечистая сила, останься, чистый спирт.",
-        "signature": "Алхимик"
-      },
-      {
-        "phrase": "Тампон… Скальпель… Волшебную палочку… Хо! Спирт!",
-        "signature": "Целитель"
-      },
-      {
-        "phrase": "Вскрытие показало: больной спал.",
-        "signature": "Целитель"
-      },
-      {
-        "phrase": "Ну что, лечить или пусть живёт?",
-        "signature": "Целитель"
-      },
-      {
-        "phrase": "Побочные эффекты: сухость во рту, тошнота, рвота, зуд, галлюцинации, потеря рассудка, кома и.. смерть. Ну что-ж, попробуем.",
-        "signature": "Целитель"
-      },
-      {
-        "phrase": "Кто с мечом к нам придёт… тех проще застрелить.",
-        "signature": "Стрелок"
-      },
-      {
-        "phrase": "Вернусь домой — убью военкома!",
-        "signature": "Пехотинец"
-      },
-      {
-        "phrase": "Кажется, я не накладывала на тебя чары слабоумия.",
-        "signature": "Волшебница"
-      },
-      {
-        "phrase": "Хочешь устроить конец света? Нажми кнопку ресет.",
-        "signature": "Волшебница"
-      },
-      {
-        "phrase": "Коли доктор сыт — и больному легче.",
-        "signature": "Тролль-знахарь"
-      },
-      {
-        "phrase": "Человеческий организм на 80 % состоит из жидкости. У некоторых — из тормозной.",
-        "signature": "Тролль-знахарь"
-      },
-      {
-        "phrase": "Даже если вас съели, у вас есть два выхода.",
-        "signature": "Могильщик"
-      }
-    ];
+var quotes = document.getElementById('quotes_json');
+var parse_quotes = JSON.parse(quotes.textContent);
+var rand_index = Math.floor(Math.random() * parse_quotes.length);
 
-var image_author = {
-    'Работник': 'rab',
-    'Паладин': 'paladin',
-    'Горный король': 'mountainking',
-    'Алхимик': 'alchemist',
-    'Целитель': 'priest',
-    'Стрелок': 'sniper',
-    'Пехотинец': 'footman',
-    'Волшебница': 'sorceress',
-    'Тролль-знахарь': 'witchdoctor',
-    'Могильщик': 'cryptfiend'
-};
+phrase_quote = document.getElementById('phrase');
+signature_quote = document.getElementById('signature');
+image_quote = document.getElementById('image');
 
-$(function(){
-    var quotes_rand = Math.floor(Math.random()*quotes.length);
-    $('blockquote').append('<p>' + quotes[quotes_rand].phrase + '</p>');
-    $('.quote-box').append('<p>' + quotes[quotes_rand].signature + '</p>');
-    $('.quote-box').append('<img src="images/' + image_author[quotes[quotes_rand].signature] + '.gif">');
-
-});
+phrase_quote.innerHTML = parse_quotes[rand_index]['phrase'];
+signature_quote.innerHTML = parse_quotes[rand_index]['signature'];
+image_quote.src = "images/" + parse_quotes[rand_index]['image_author'] + ".gif";
