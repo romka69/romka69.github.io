@@ -25,7 +25,7 @@ projects:
   exclude:
     forks: false
     projects:
-    # - repo-name
+    # - repo- name
 
 topics:
   - name: Ruby
